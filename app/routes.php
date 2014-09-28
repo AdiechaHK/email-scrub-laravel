@@ -21,3 +21,5 @@ Route::get('/', 'HomeController@showWelcome');
 Route::get('/csv', 'HomeController@csv');
 
 Route::get('/api', 'HomeController@api');
+
+Route::get('/api/email', 'HomeController@email');
