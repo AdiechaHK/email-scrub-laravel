@@ -15,16 +15,51 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome() {
+	public function showWelcome()
+	{
 		return View::make('hello');
 	}
-
+	
 	public function csv() {
 		return View::make('csv.index');
 	}
 
-	public function api() {
-		return View::make('api.index');
-	}
+	
+	public function validateEmail($email) {
+		$arrEmail = explode(",", $email);
+		
+		$arrInValidEmail = array();
+		$arrValidEmail = array();
+		
+	foreach($arrEmail as $email) {
 
+		$validator = Validator::make(
+    	
+		array(
+      	  'email' => $email
+   		 ),
+   		
+   		 array(
+           'email' => 'required|email'
+    	)
+	);
+	
+		if ($validator->fails())
+		{
+	    // The given data did not pass validation
+	      	array_push($arrInValidEmail, $email);		
+	 	}
+		else
+		{
+	      	array_push($arrValidEmail, $email);		
+		}
+  	  }
+	
+	$arr = array('success' => 1, 
+				'validEmail' => $arrValidEmail,
+				'invalidEmail' => $arrInValidEmail	
+				);      
+				
+	echo json_encode( $arr );
+ }
 }
