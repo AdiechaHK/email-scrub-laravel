@@ -22,4 +22,4 @@ Route::get('/csv', 'HomeController@csv');
 
 Route::get('/api', 'HomeController@api');
 
-Route::get('/api/email', 'HomeController@email');
+Route::get('/validateEmail/{email}', 'HomeController@validateEmail');
