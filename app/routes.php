@@ -19,4 +19,8 @@ Route::get('/', function()
 
 Route::get('/api', 'HomeController@api');
 
+Route::get('/csv', 'HomeController@csv');
+
+Route::post('/csv', 'HomeController@submitCsv');
+
 Route::get('/validateEmail/{email}', 'HomeController@validateEmail');
