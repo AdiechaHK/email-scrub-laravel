@@ -12,3 +12,9 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+.reason-cell {
+	text-align: center;
+	color: white;
+	font-weight: bolder;
+}

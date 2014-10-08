@@ -54,11 +54,11 @@ class HomeController extends BaseController {
     
     foreach($arrEmail as $email) {
 
+      $email = trim($email);
     	$result = $this->customEmailValidatation($email);
     	
       if($result['isValid']) {
         array_push($arrValidEmail, $email);
-        
         DB::table('tbl_user')->insert(
          array(
            'email' => $email, 
@@ -66,20 +66,18 @@ class HomeController extends BaseController {
            'time_of_validation' => date('Y-m-d H:i:s')
            )
          );
-        
       }
 
       else {
         array_push($arrInValidEmail, array('email'=>$email, 'reason'=> $result['reason']));
-        
         DB::table('tbl_user')->insert(
-         array(
+          array(
            'email' => $email, 
            'email_status' => 0,
            'time_of_validation' => date('Y-m-d H:i:s'),
            'email_status_remark' => $result['reason']
-           )
-         );
+          )
+        );
       }
     }
 
@@ -185,20 +183,22 @@ class HomeController extends BaseController {
     //hr_domain check
     if($config['hr_domain']) {
       $recipient = explode('@', $email);	
-      $result = DB::table('high-risk-mobiledomains')
-        // ->where('domain', 'LIKE', '%'.$recipient[1].'%')
-        ->where('domain', '=', $recipient[1])
-        ->first();
+      if(isset($recipient[1])) {
+        $result = DB::table('high-risk-mobiledomains')
+          // ->where('domain', 'LIKE', '%'.$recipient[1].'%')
+          ->where('domain', '=', $recipient[1])
+          ->first();
 
-      if (is_null($result)) {
-        // It does not exist - 
-        $validate = TRUE && $validate;
-        $valid['highRiskDomainCheck'] = TRUE;
-      } else {
-        // It exists - 
-        $validate = FALSE;
-        $reason = 'high risk domain';
-        $valid['highRiskDomainCheck'] = FALSE;
+        if (is_null($result)) {
+          // It does not exist - 
+          $validate = TRUE && $validate;
+          $valid['highRiskDomainCheck'] = TRUE;
+        } else {
+          // It exists - 
+          $validate = FALSE;
+          $reason = 'high risk domain';
+          $valid['highRiskDomainCheck'] = FALSE;
+        }
       }
     }
 
@@ -224,19 +224,22 @@ class HomeController extends BaseController {
     //hr_throwaway check
     if($config['hr_throwaway']) {
       $recipient = explode('@', $email);
-      $result = DB::table('high-risk-throwaway')
-        ->where('standard', '=', $recipient[1])
-        ->first();
+      if(isset($recipient[1])) {
 
-      if (is_null($result)) {
-        // It does not exist - 
-        $validate = TRUE && $validate;
-        $valid['highRiskThrowawayCheck'] = TRUE;
-      } else {
-        // It exists - 
-        $validate = FALSE;
-        $reason = 'high risk throwaway';
-        $valid['highRiskThrowawayCheck'] = FALSE;
+        $result = DB::table('high-risk-throwaway')
+          ->where('standard', '=', $recipient[1])
+          ->first();
+
+        if (is_null($result)) {
+          // It does not exist - 
+          $validate = TRUE && $validate;
+          $valid['highRiskThrowawayCheck'] = TRUE;
+        } else {
+          // It exists - 
+          $validate = FALSE;
+          $reason = 'high risk throwaway';
+          $valid['highRiskThrowawayCheck'] = FALSE;
+        }
       }
     }
 

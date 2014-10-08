@@ -1,5 +1,6 @@
 var EmailValidation = function(conf) {
-	this.url = "http://codegeeks.in/laravel-test/public/validateEmail/";
+	this.url = "http://codegeeks.in/laravel-test/public/index.php/validateEmail/";
+	// this.url = "http://codegeeks.in/laravel-test/public/validateEmail/";
 	this.config = conf;
 }
 
