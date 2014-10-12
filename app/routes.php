@@ -24,3 +24,5 @@ Route::get('/csv', 'HomeController@csv');
 Route::post('/csv', 'HomeController@submitCsv');
 
 Route::get('/validateEmail/{email}', 'HomeController@validateEmail');
+
+Route::get('/design', 'HomeController@design');

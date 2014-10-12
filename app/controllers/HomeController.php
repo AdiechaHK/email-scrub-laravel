@@ -22,6 +22,10 @@ class HomeController extends BaseController {
   public function csv() {
     return View::make('csv.form');
   }
+  
+   public function design() {
+        return View::make('design');
+     }
 
   public function submitCsv() {
 
