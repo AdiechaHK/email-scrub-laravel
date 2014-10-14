@@ -73,7 +73,7 @@
 
 <!-- Container Start -->
 <div class="container">
-				<div class="row" style="border-style:dotted; display:none; border-color:#999999; border-width:2px; border-radius:5px" id="dvSummary">
+				<div class="row" style="border-style:dotted; border-color:#999999; border-width:2px; border-radius:5px" id="dvSummary">
 
 <div class="col-lg-3 col-sm-3"></div>
 				<div class="col-lg-3 col-sm-3">
@@ -87,7 +87,7 @@
 					 <p class="text-left">Records Verified</p>
 					</div>
 					<div class="col-lg-4 col-sm-4">
-						<p class="text-right" id="lblTrec">130</p>
+						<p class="text-right" id="lblTrec">0</p>
 					</div>
 					</div>
 					
@@ -98,7 +98,7 @@
 					 <p class="text-left">Invalid</p>
 					</div>
 					<div class="col-lg-4 col-sm-4">
-						<p class="text-right" id="lblInvalidRec">60</p>
+						<p class="text-right" id="lblInvalidRec">0</p>
 					</div>
 					</div>
 					
@@ -107,10 +107,10 @@
 					 <p class="text-left">Valid</p>
 					</div>
 					<div class="col-lg-4 col-sm-4">
-						<p class="text-right" id="lblValidrec">20</p>
+						<p class="text-right" id="lblValidrec">0</p>
 					</div>
 					</div>
-					
+					<!--
 					<div class="row" id="dvUnpro">
 						<div class="col-lg-7 col-sm-7">
 						 <p class="text-left">Unprocessed</p>
@@ -118,17 +118,19 @@
 						<div class="col-lg-4 col-sm-4">
 							<p class="text-right" id="lblUnProcrec">50</p>
 						</div>
-					</div>
+					</div>-->
 				</p>
 				</div>
 				
 				<div class="col-lg-3 col-sm-3">
 				<br>
-				<br>
-					<canvas id="myChart" width="200" height="200"></canvas>		
-				</div>
+<center>
 				
-				<div class="col-lg-3 col-sm-3"></div>
+					<canvas id="myChart" width="200" height="200"></canvas>		
+					
+					<h4 id="hVerify">Verifying &nbsp; <label id="lblProc">0</label>%</h4></center>
+				</div>
+				<div class="col-lg-2 col-sm-2"></div>
 				</div>
 
 </div>
@@ -181,11 +183,11 @@
 <!-- Loader Div Starts --->
 
 
-			<div id="dvLoader" style="display:none; top:0; left:0; height:100%; width:100%; position:absolute;" >
+<!--			<div id="dvLoader" style="display:none; top:0; left:0; height:100%; width:100%; position:absolute;" >
 				<div class="InnerContainer">
 				<canvas id="myLoader" width="200" height="200"></canvas>	
 				</div>
-			</div>
+			</div>-->
 			
 <!-- Loader Div Ends -->
 
