@@ -26,6 +26,10 @@ class HomeController extends BaseController {
    public function design() {
         return View::make('design');
      }
+	 
+	    public function report() {
+        return View::make('report');
+     }
 
   public function submitCsv() {
 

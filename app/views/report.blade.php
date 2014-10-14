@@ -19,6 +19,7 @@
 
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/style-responsive.css'); }}
+	    {{ HTML::style('css/main.css'); }}
 	
 
 <!--	{{ HTML::style('css/bootstrap-datetimepicker.min.css') }}
@@ -61,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-sm-4">
-                    <h1>Email Validation - CSV Upload</h1>
+                    <h1>Email Validation - Verification</h1>
                 </div>
             </div>
         </div>
@@ -72,118 +73,63 @@
 
 <!-- Container Start -->
 <div class="container">
-<!--<hr />
-<table>
+				<div class="row" style="border-style:dotted; display:none; border-color:#999999; border-width:2px; border-radius:5px" id="dvSummary">
 
-
-	<tr>
-
-	</tr>
-		<tr>
-		<td colspan="6">
-		<span class="btn btn-success fileinput-button" id="btnSubmit">
-                    Submit
-        </span>
-		</td>
-	</tr>
-	
-</table>-->
-
-<div style="border-style:dotted; border-color:#999999; border-width:2px; border-radius:5px" height="500px" width="100%">
-
-	<!-- Add New Email List Button -->
-	<!-- Add New Email List Button Ends -->
-	
-	<div class="row" style="padding:10px">
-
-		<form action="report" method="post">
-	
-		<!-- Left panel Checkboxes starts -->
-		<div class="col-lg-3 col-sm-3">
-			<h4> Phase 1 </h4>
-	
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="syntax">syntax</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" name="de_duplicate" value="">de_duplicate</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="domain_check">domain_check</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="hr_recipient">hr_recipient</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="hr_domain">hr_domain</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="hr_complain">hr_complain</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="hr_role">hr_role</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="hr_throwaway">hr_throwaway</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="spam_trap">spam_trap</label>
-			</div>
-	
-		</div>
-		
-		
-		<!-- Left panel Checkboxes ends -->
-		
-		<!-- Right Panel Checkboxes starts-->
-		<div class="col-lg-3 col-sm-3">
-	<h4> Phase 2 </h4>
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="mta-check">mta-check</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" name="sm-check" value="">sm-check</label>
-			</div>
-			
-			<div class="checkbox">
-			  <label><input type="checkbox" checked="checked" value="" name="bp-check">bp-check</label>
-			</div>
-			
-		</div>
-		<!-- Right Panel Checkboxes Ends-->
-		
-		
-		<!-- Blank Area for Chart starts -->
-		<div class="col-lg-4 col-sm-4">
-		<br>
-		
-
-			<input type="file" title="Browse" class='btn-primary'>
-			<br>
-			<br>	
-		<input type="submit" value="Submit" class="btn btn-success">
-		
-		</div>
-		
-		<!-- Blank Area for Chart ends -->
-		
-		</form>		
-		
-	</div>
-
-
-
-</div>
-	
+<div class="col-lg-3 col-sm-3"></div>
+				<div class="col-lg-3 col-sm-3">
+				<p class="text-left">
+					<h3>Verification Summary</h3>
+					<h5>File Name.csv</h5>
+					<hr>
+					
+					<div class="row">
+					<div class="col-lg-7 col-sm-7">
+					 <p class="text-left">Records Verified</p>
+					</div>
+					<div class="col-lg-4 col-sm-4">
+						<p class="text-right" id="lblTrec">130</p>
+					</div>
+					</div>
+					
+					<hr>
+					
+					<div class="row" id="dvInvalid">
+					<div class="col-lg-7 col-sm-7">
+					 <p class="text-left">Invalid</p>
+					</div>
+					<div class="col-lg-4 col-sm-4">
+						<p class="text-right" id="lblInvalidRec">60</p>
+					</div>
+					</div>
+					
+										<div class="row" id="dvValid">
+					<div class="col-lg-7 col-sm-7">
+					 <p class="text-left">Valid</p>
+					</div>
+					<div class="col-lg-4 col-sm-4">
+						<p class="text-right" id="lblValidrec">20</p>
+					</div>
+					</div>
+					
+					<div class="row" id="dvUnpro">
+						<div class="col-lg-7 col-sm-7">
+						 <p class="text-left">Unprocessed</p>
+						</div>
+						<div class="col-lg-4 col-sm-4">
+							<p class="text-right" id="lblUnProcrec">50</p>
+						</div>
+					</div>
+				</p>
+				</div>
+				
+				<div class="col-lg-3 col-sm-3">
+				<br>
+				<br>
+					<canvas id="myChart" width="200" height="200"></canvas>		
+				</div>
+				
+				<div class="col-lg-3 col-sm-3"></div>
+				</div>
 
 </div>
 <!-- Container Ends -->
@@ -232,6 +178,16 @@
      </footer>
      <!--footer end-->
 
+<!-- Loader Div Starts --->
+
+
+			<div id="dvLoader" style="display:none; top:0; left:0; height:100%; width:100%; position:absolute;" >
+				<div class="InnerContainer">
+				<canvas id="myLoader" width="200" height="200"></canvas>	
+				</div>
+			</div>
+			
+<!-- Loader Div Ends -->
 
 
 			
@@ -250,7 +206,7 @@
     {{ HTML::script('js/jquery.easing.min.js'); }}
     {{ HTML::script('js/link-hover.js'); }}
 	    {{ HTML::script('js/bootstrap-fileinput.js'); }}
-	{{ HTML::script('js/main.js') }}
+	{{ HTML::script('js/report.js') }}
 </body>
 </html>
 
