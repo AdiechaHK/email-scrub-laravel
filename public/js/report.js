@@ -34,7 +34,8 @@ $.getScript('http://www.chartjs.org/assets/Chart.js',function(){
     ]
 
     var options = {
-        animation: false
+        animation: false,
+		showTooltips: false
     };
 
 	$('#lblProc').text(vData1);
@@ -67,7 +68,8 @@ $.getScript('http://www.chartjs.org/assets/Chart.js',function(){
     ]
 
     var options = {
-        animation: false
+        animation: false,
+		showTooltips: false
     };
 
 $('#dvUnpro').css({"color":"#323439"});
