@@ -19,8 +19,17 @@ class HomeController extends BaseController {
     return View::make('api.help');
   }
 
+  public function ui() {
+    return View::make('ui.first');
+  }
+
   public function csv() {
     return View::make('csv.form');
+  }
+
+  public function upload_csv(){
+    echo "Here";
+    // return Redirect::to('ui');
   }
   
    public function design() {
