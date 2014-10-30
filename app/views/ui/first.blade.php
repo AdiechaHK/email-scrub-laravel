@@ -166,7 +166,7 @@
           </div>
         </div>
         </div> -->
-      <div id="drop_zone" class="drop_zone" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
+      <div id="drop_zone" class="drop_zone">
         <div class="clearfix">
           <div ng-repeat="card in cards | filter:name | daterange : start_date : end_date">
             <div class="uploading-box" ng-if="card.status == 'ready' ">
