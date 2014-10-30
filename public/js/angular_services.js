@@ -1,0 +1,29 @@
+angular.module('email')
+
+    .factory('cardArray', function() {
+
+      var cards_array = [
+        /*
+        status, // possible values :['ready', 'processing', 'completed']
+        data, // for uploaded data = {'total_record': 98}
+              // for verifying data = {'total_reocord': 98, 'verified': 57, 'good': 43, 'bed': 14}
+              // for completed data = {'total_reocord': 98, 'verified': 57, 'good': 43, 'bed': 14}
+        date, 
+        name
+        */
+
+        {'status':'ready' , 'name':'list1.csv', 'date': 1414407041177  , 'data': {} },
+        {'status':'processing' , 'name':'list2.csv', 'date': 1414407041177 , 'data': {} },
+         {'status':'completed' , 'name':'list3.csv', 'date': 1414407041177 , 'data': {} },
+          {'status':'ready' , 'name':'list4.csv', 'date': 1414407041177 , 'data': {} },
+           {'status':'processing' , 'name':'list5.csv', 'date': 1414407041177 , 'data': {} },
+            {'status':'completed' , 'name':'list6.csv', 'date': 1414407041177 , 'data': {} }
+
+      ];
+
+        return {
+            get : function() {
+                return cards_array;
+            }
+        }
+    });

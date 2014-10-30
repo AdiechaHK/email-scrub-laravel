@@ -1,0 +1,149 @@
+body{
+	background-color: #e1e7eb;
+}
+.box{
+	margin: 30px 0 30px 0;
+}
+.drop_zone{
+	width: 100%;
+	min-height: 350px;
+	border: 2px dotted #7c8a8f;
+	border-radius: 15px;
+}
+.drop_zone_desc{
+	color: #495564;
+}
+.fa-icon{
+	color: #c5c9cb;
+	font-size: 15em !important;
+}
+.uploading-box{
+	width: 204px;
+	min-height: 296px;
+	border: 5px solid white;
+	background-color: #d8dfe3;
+	margin: 15px;
+	float: left;
+	box-shadow: 0 0 5px #303030;
+}
+.file-title{
+	color: #5f6d76;
+}
+.graph{
+	width: 100%;
+	height: 145px;
+}
+.icon-position{
+	position: relative;
+	left: 71px;
+	top: 0px;
+	color: #606060;
+	cursor: pointer;
+}
+.hr-style{
+	border-color: #b5bcbf;
+	margin: 5px auto;
+	width: 120px;
+}
+.title-heading{
+	color: #717e84;
+}
+.title-value{
+	color: #3a474d;
+}
+.color{
+	color: #86b70a;
+}
+.btn-margin-bottom{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.close-position{
+	margin: 15px;
+}
+.hr-style-model{
+	border-color: #b5bcbf;
+	margin: 5px auto;
+}
+
+/* flipping cars */
+
+.sandbox-wrap {
+-webkit-perspective: 800px;
+-moz-perspective: 800px;
+-o-perspective: 800px;
+perspective: 800px;
+}
+.card-flip-3d {
+
+	width: 204px;
+	min-height: 296px;
+	border: 5px solid white;
+	background-color: #d8dfe3;
+	margin: 15px;
+	float: left;
+	box-shadow: 0 0 5px #303030;
+
+position: relative;
+-webkit-transition: -webkit-transform 1s;
+-moz-transition: -moz-transform 1s;
+-o-transition: -o-transform 1s;
+transition: transform 1s;
+-webkit-transform-style: preserve-3d;
+-moz-transform-style: preserve-3d;
+-o-transform-style: preserve-3d;
+transform-style: preserve-3d;
+}
+.card-flip-3d.flipped {
+-webkit-transform: rotateY( 180deg );
+-moz-transform: rotateY( 180deg );
+-o-transform: rotateY( 180deg );
+transform: rotateY( 180deg );
+}
+.card-flip-3d .card {
+display: block;
+height: 100%;
+width: 100%;
+position: absolute;
+top:0;
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-o-backface-visibility: hidden;
+backface-visibility: hidden;
+}
+.card-flip-3d .front {
+background-color: #d8dfe3;
+}
+.card-flip-3d .back {
+background-color: #d8dfe3;
+-webkit-transform: rotateY( 180deg );
+-moz-transform: rotateY( 180deg );
+-o-transform: rotateY( 180deg );
+transform: rotateY( 180deg );
+}
+
+
+/**/
+
+.btn-style-completed{
+	width: 93px;
+	margin: 10px 0;
+	background-color: #eaeaeb;
+	border-color: #b8c0c5;
+	color: #636669;
+}
+.btn-style-completed:hover, 
+.btn-style-completed:focus, 
+.btn-style-completed:active {
+	background-color: #eaeaeb;
+	border-color: #b8c0c5;
+	color: #636669;
+}
+.a-style{
+	color: blue;
+	text-decoration: underline;
+}
+.a-style:hover{
+	color: blue;
+	text-decoration: underline;
+}
