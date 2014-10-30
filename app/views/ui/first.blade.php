@@ -92,44 +92,30 @@
 <!--container start-->
 <div class="container">
   <div class="row">
-    <div class="col-sm-2">
-      <div style="font-size:20px;">Filter By:</div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <select class="form-control" ng-model="statusCard">
-          <option></option>
-          <option>ready</option>
-          <option>processing</option>
-          <option>completed</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-addon">@</div>
-          <input class="form-control" id="datepicker1" placeholder="Start Date" type="date" ng-model="start_date">
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-addon">@</div>
-          <input class="form-control" id="datepicker2" type="date" placeholder="End Date" ng-model="end_date">
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <input type="text" ng-model="name" class="form-control" id="" placeholder="File Name">
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <button class="btn btn-default" ng-click="clearall()">Clear All</button>
-    </div>
-  </div>
+     <div class="col-sm-2">
+       <div style="font-size:20px;">Filter By:</div>
+     </div>
+     <div class="col-sm-2">
+         <select class="form-control" ng-model="statusCard">
+           <option></option>
+           <option>ready</option>
+           <option>processing</option>
+           <option>completed</option>
+         </select>
+     </div>
+     <div class="col-sm-2">
+           <input class="form-control" id="datepicker1" placeholder="Start Date" type="date" ng-model="start_date">
+     </div>
+     <div class="col-sm-2">
+       <input class="form-control" id="datepicker2" type="date" placeholder="End Date" ng-model="end_date">
+     </div>
+     <div class="col-sm-2">
+         <input type="text" ng-model="name" class="form-control" id="" placeholder="File Name">
+     </div>
+     <div class="col-sm-2">
+       <button class="btn btn-default" ng-click="clearall()">Clear All</button>
+     </div>
+   </div>
   <hr>
   <div class="row">
     <div class="col-sm-12">
