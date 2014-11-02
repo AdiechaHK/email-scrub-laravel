@@ -49,6 +49,65 @@ angular.module('email')
         }
 
         // =======================================================  
+
+        $scope.exampleData = [
+                {
+                    key: "Valid",
+                    y: 0
+                }, {
+                  key: "Invalid",
+                  y: 50
+                }, {
+                  key: "Unchecked",
+                  y: 100
+                }
+            ];
+
+            $scope.xFunction = function(){
+                return function(d) {
+                    return d.key;
+                };
+            }
+            $scope.yFunction = function(){
+                return function(d) {
+                    console.log(d);
+                    return d.y;
+                };
+            }
+
+            $scope.descriptionFunction = function(){
+                return function(d){
+                    return d.key;
+                }
+            }
+
+            var i = 0;
+
+            var interval = setInterval(function(){
+                $scope.$apply(function(){
+                    var data = $scope.exampleData;
+    
+                    i = i + 1 ;
+
+                    data[0].y = data[0].y + i;
+                    data[1].y = data[1].y - 1;
+                    data[2].y = data[2].y - 1;
+              
+                    if (i === 50){
+
+                      clearInterval(interval);
+
+                    }
+                    $scope.exampleData = data;
+                })
+            }, 1000);
+
+            $scope.toolTipContentFunction = function(){
+              return function(key, x, y, e, graph) {
+                  return '<div style="text-align:center;font-weight:bold">' + key + '</div>' +
+                        '<div style="text-align:center;">' + x + '</div>'
+              }
+            }
         
     });
 

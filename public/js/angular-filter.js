@@ -1,31 +1,10 @@
-// angular.module('email')
-
-//     .filter('dateRange', function(){
-
-//     return function(input, startDate, endDate) {
-//        angular.forEach(input, function(obj){
-
-//         if(obj.received.getTime() >= startDate.getTime() && obj.received.getTime() <= endDate.getTime())   {
-//             return obj;
-//         }
-//        });
-
-//     };
-// });
-
-
-// function parseDate(input) {
-//   var parts = input.split('-');
-//   return new Date(parts[2], parts[1]-1, parts[0]); 
-// }
-
 angular.module('email').filter("daterange", function() {
   return function(cards, start_date, end_date) {
 
         var day = 1000 * 60 * 60 * 24;
         var condition ;
         var e_dt, s_dt;
-        console.log(start_date,end_date)
+        // console.log(start_date,end_date)
         if(start_date == undefined) {
           if(end_date == undefined) {
             return cards;
@@ -62,30 +41,5 @@ angular.module('email').filter("daterange", function() {
           }
         }
         return filtered_cards;
-        // var df = parseDate(from);
-        // console.log(df);
-        // var dt = parseDate(to);
-        // console.log(dt);
-        // var result = [];        
-        // for (var i=0; i<items.length; i++){
-        //     var tf = new Date(items[i].date1 * 1000),
-        //         tt = new Date(items[i].date2 * 1000);
-        //     if (tf > df && tt < dt)  {
-        //         result.push(items[i]);
-        //     }
-        // }         
-
-
-
-
-
-
-
-        // return result;
-
-
-
-
-
   };
 });
