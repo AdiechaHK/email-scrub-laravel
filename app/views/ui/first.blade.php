@@ -50,7 +50,6 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
   </head>
-  <button ng-click="myStopFunction()"></button>
   <body ng-controller="emailsController">
     <!--header start-->
     <header class="header-frontend">
@@ -534,6 +533,9 @@
   $( "#datepicker2" ).datepicker();
 </script>
 <script type="text/javascript">
+  
+  $('input[type="date"]').datepicker().prop('type','text');
+
   $(function() {
     $("#drop_zone").delegate( ".flip-trigger", "click", function() {
   			 $(this).parents(".card-flip-3d:first").toggleClass("flipped");
