@@ -94,13 +94,13 @@
 
   <!--container start-->
   <div class="container">
-    <div class="row">
+    <div class="row filter">
       <div class="col-sm-2 text-center">
         <div style="font-size:20px;">Filter By:</div>
       </div>
       <div class="col-sm-2 text-center">
         <select class="form-control" ng-model="statusCard">
-          <option></option>
+          <option value="">Select Status</option>
           <option>ready</option>
           <option>processing</option>
           <option>completed</option>
@@ -185,11 +185,12 @@
             <div class="clearfix">
               <!-- remove-button-on-card -->
               <div class="clearfix">
-                <div class="pull-right">
+                <!-- <div class="pull-right">
                   <a href="">
                     <i class="fa fa-remove icon-style"></i>
                   </a>
-                </div>
+                </div> -->
+                <br>
               </div>
               <!-- card content -->
               <div class="clearfix">
@@ -217,11 +218,12 @@
             <div class="clearfix">
               <!-- remove-button-on-card -->
               <div class="clearfix">
-                <div class="pull-right">
+                <!-- <div class="pull-right">
                   <a href="">
                     <i class="fa fa-remove icon-style"></i>
                   </a>
-                </div>
+                </div> -->
+                <br>
               </div>
               <!-- card content -->
               <div class="clearfix">

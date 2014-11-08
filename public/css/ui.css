@@ -98,7 +98,6 @@ perspective: 800px;
 .card-flip-3d {
 	min-height: 330px;
 	border: 5px solid white;
-	background-color: #d8dfe3;
 	box-shadow: 0 0 5px #303030;
 	position: relative;
 	-webkit-transition: -webkit-transform 1s;
@@ -168,4 +167,8 @@ transform: rotateY( 180deg );
 }
 .button-distance{
 	margin: 27px 0;
+}
+.filter input,
+.filter select{
+	color: #303030 !important;
 }

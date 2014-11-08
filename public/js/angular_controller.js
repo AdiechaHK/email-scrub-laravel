@@ -70,7 +70,6 @@ angular.module('email')
             }
             $scope.yFunction = function(){
                 return function(d) {
-                    console.log(d);
                     return d.y;
                 };
             }
