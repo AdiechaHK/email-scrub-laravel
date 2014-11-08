@@ -201,10 +201,11 @@
                   <H5 class="title-value">98</H5>
                   <h5 class="title-heading"><STRONG>VARIFICATIONS</STRONG></h5>
                   <H5 class="title-value">98</H5>
-                  <h5 class="title-heading"><STRONG>TOTAL COST</STRONG></h5>
-                  <H5 class="title-value color">$0.98</H5>
                   <hr class="hr-style">
-                  <button class="btn btn-primary btn-margin-bottom">Let's Get Started</button>
+                  <div ng-show="progress">
+                    {{ HTML::image('img/loading.gif','progressbar',['width'=>"100%"]) }}
+                  </div>
+                  <button class="btn btn-primary btn-margin-bottom" ng-show="changestatus" ng-click="changeCardStatus(card)">Let's Get Started</button>
                 </div>
               </div>            
             </div>
@@ -231,8 +232,8 @@
                   <h6 class="file-title"><%card.name%></h6>
                   <div class="">
                     <nvd3-pie-chart
-            data="exampleData"
-            id="exampleId"
+            data="card.data.graphdata"
+            id="exampleId<%$index%>"
             margin="{left:0,top:20,bottom:0,right:0}"
             x="xFunction()"
             y="yFunction()"
@@ -303,7 +304,25 @@
                 <div class="clearfix">
                   <div class="text-center">
                     <h6 class="file-title"><%card.name%></h6>
-                    <div class="graph"></div>
+                    <div class="">
+                       <nvd3-pie-chart
+            data="card.data.graphdata"
+            id="exampleId<%$index%>"
+            margin="{left:0,top:20,bottom:0,right:0}"
+            x="xFunction()"
+            y="yFunction()"
+            labelType="value"
+            interactive = "true"
+            tooltips = "true"
+            tooltipcontent = toolTipContentFunction();
+            donut="true"
+            donutRatio=".5"
+            donutLabelsOutside="false"
+            objectequality = "true"
+            >
+        <svg height="200"></svg>
+    </nvd3-pie-chart>
+                    </div>
                     <button class="btn btn-default btn-style-completed">Delete</button>
                     <br>
                     <a href="" class="a-style" data-toggle="modal" data-target="#myModal">Full Report</a>
@@ -329,7 +348,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              <h4 class="modal-title" id="myModalLabel">Full Report</h4>
             </div>
             <div class="modal-body">
               <div class="clearfix">
@@ -418,9 +437,27 @@
                   <!--  -->
                 </div>
                 <div class="col-sm-6 text-center">
+
+                  <nvd3-pie-chart
+            data="exampleData"
+            id="exampleId3"
+            margin="{left:0,top:20,bottom:0,right:0}"
+            x="xFunction()"
+            y="yFunction()"
+            labelType="value"
+            interactive = "true"
+            tooltips = "true"
+            tooltipcontent = toolTipContentFunction();
+            donut="true"
+            donutRatio=".5"
+            donutLabelsOutside="false"
+            objectequality = "true"
+            >
+        <svg height="200"></svg>
+    </nvd3-pie-chart>
+
                   <br><br><br><br><br><br><br><br>
-                  <br><br><br><br><br><br><br><br>
-                  <br><br><br>
+                  
                   <button class="btn btn-primary">
                   Full Download
                   </button>

@@ -32,3 +32,7 @@ Route::post('/report', 'HomeController@report');
 Route::get('ui', 'HomeController@ui');
 
 Route::post('upload_csv', 'HomeController@upload_csv');
+
+Route::get('/service/getAllCards', 'HomeController@allCards');
+
+Route::get('/service/refreshCard/{id}', 'HomeController@cardDetail');

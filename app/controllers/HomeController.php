@@ -23,6 +23,105 @@ class HomeController extends BaseController {
     return View::make('ui.first');
   }
 
+  public function allCards() {
+    $data = array(
+      array(
+        'id'=>1,
+        'status'=>'ready',
+        'name'=>'list1.csv',
+        'date'=> 1414407041177,
+        'data'=> array()
+      ), array(
+        'id'=>2,
+        'status'=>'processing',
+        'name'=>'list2.csv',
+        'date'=> 1414407041177,
+        'data'=> array(
+            'graphdata'=>array(
+                array('key'=> "Valid",'y'=> 0),
+                array('key'=> "Invalid",'y'=> 50),
+                array('key'=> "Unchecked",'y'=> 100)
+              )
+            )
+      ), array(
+        'id'=>3,
+        'status'=>'completed',
+        'name'=>'list3.csv',
+        'date'=> 1414407041177,
+        'data'=> array(
+            'graphdata'=>array(
+                array('key'=> "Valid",'y'=> 0),
+                array('key'=> "Invalid",'y'=> 50),
+                array('key'=> "Unchecked",'y'=> 100)
+              )
+            )
+      ), array(
+        'id'=>4,
+        'status'=>'ready',
+        'name'=>'list4.csv',
+        'date'=> 1414407041177,
+        'data'=> array(),
+        'progressbBarValue'=> 0
+      ), array(
+        'id'=>5,
+        'status'=>'processing',
+        'name'=>'list2.csv',
+        'date'=> 1414407041177,
+        'data'=> array(
+            'graphdata'=>array(
+                array('key'=> "Valid",'y'=> 0),
+                array('key'=> "Invalid",'y'=> 50),
+                array('key'=> "Unchecked",'y'=> 100)
+              )
+            )
+      ));
+
+    return json_encode($data);
+  }
+
+  public function cardDetail($id){
+    $data;
+    if($id==1) {
+      $data =  array(
+        'id'=>$id,
+        'status'=>'ready',
+        'name'=>'list4.csv',
+        'date'=> 1414407041177,
+        'data'=> array(),
+        'progressbBarValue'=> 0
+      );
+    } else if($id == 4 || $id == 5) {
+      $data =  array(
+        'id'=>$id,
+        'status'=>'processing',
+        'name'=>'list2.csv',
+        'date'=> 1414407041177,
+        'data'=> array(
+            'graphdata'=>array(
+                array('key'=> "Valid",'y'=> 0),
+                array('key'=> "Invalid",'y'=> 50),
+                array('key'=> "Unchecked",'y'=> 100)
+              )
+            )
+      );
+    } else {
+      $data =  array(
+        'id'=>$id,
+        'status'=>'completed',
+        'name'=>'list3.csv',
+        'date'=> 1414407041177,
+        'data'=> array(
+            'graphdata'=>array(
+                array('key'=> "Valid",'y'=> 0),
+                array('key'=> "Invalid",'y'=> 50),
+                array('key'=> "Unchecked",'y'=> 100)
+              )
+            )
+      );
+    }
+    return json_encode($data);
+  }
+
   public function csv() {
     return View::make('csv.form');
   }

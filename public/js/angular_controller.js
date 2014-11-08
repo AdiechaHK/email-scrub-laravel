@@ -1,7 +1,7 @@
 angular.module('email')
 
     // event controller ------------------------------------------------------------------------------
-    .controller('emailsController',function($scope, cardArray){
+    .controller('emailsController',function($scope, cardService, $http){
 
 
         // =======================================================
@@ -27,7 +27,62 @@ angular.module('email')
         loadCards();
 
         function loadCards(){
-          $scope.cards = cardArray.get();
+
+          //Fetch all ReceivedMessages for LoggedIn user.
+          cardService.getallCards()
+              .success(function(data) {
+                  $scope.cards = data;
+                  for(i=0;i<$scope.cards.length;i++){
+                    if($scope.cards[i].status === "ready"){
+                      changingProgressValue($scope.cards[i]);
+                    }
+                  }
+          });
+
+          // $scope.cards = cardArray.get();
+
+          // for(i=0;i<$scope.cards.length;i++){
+          //   if($scope.cards[i].status === "ready"){
+          //     changingProgressValue($scope.cards[i]);
+          //   }
+          // }
+
+        }
+
+        // =======================================================
+
+        $scope.progress = true;
+
+        $scope.changestatus = false;
+
+        value = 0;
+
+        function changingProgressValue(card){
+          // console.log(card);
+
+          var interval = setInterval(function(){
+                $scope.$apply(function(){
+
+                    value = card.progressbBarValue;
+
+                    value = value + 10;
+
+                    // var data = $scope.exampleData;
+              
+                    if (card.progressbBarValue === 100){
+
+                      $scope.progress = false;
+
+                      $scope.changestatus = true;
+
+                      clearInterval(interval);                     
+
+                    }
+
+                    card.progressbBarValue = value;
+                })
+            }, 1000);
+
         }
 
         // =======================================================
@@ -53,13 +108,13 @@ angular.module('email')
         $scope.exampleData = [
                 {
                     key: "Valid",
-                    y: 0
+                    y: 70
                 }, {
                   key: "Invalid",
-                  y: 50
+                  y: 20
                 }, {
                   key: "Unchecked",
-                  y: 100
+                  y: 10
                 }
             ];
 
@@ -96,6 +151,7 @@ angular.module('email')
 
                       clearInterval(interval);
 
+
                     }
                     $scope.exampleData = data;
                 })
@@ -107,8 +163,42 @@ angular.module('email')
                         '<div style="text-align:center;">' + x + '</div>'
               }
             }
+
+        // =======================================================
+
+        $scope.changeCardStatus = function(card){
+
+          console.log(card);
+
+          card.status = "processing"
+
+          card.data.graphdata = [
+
+            {
+                    key: "Valid",
+                    y: 0
+                }, {
+                  key: "Invalid",
+                  y: 50
+                }, {
+                  key: "Unchecked",
+                  y: 100
+                }
+
+          ];
+
+        }
         
     });
+
+
+
+
+
+
+
+
+
 
 $(document).ready(function() {
   $("#file").change(function() {
